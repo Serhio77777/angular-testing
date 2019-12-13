@@ -1,1 +1,20 @@
 <p>test-component works!</p>
+
+<form [formGroup]="testForm" (ngSubmit)="submit()" novalidate>
+    <div>
+        <label>
+            Name:
+            <input formControlName="name">
+        </label>
+        <label>
+            Email:
+            <input formControlName="email">
+        </label>
+        <label>
+            Password:
+            <input formControlName="password">
+        </label>
+
+        <button type="submit" [disabled]="!testForm.valid">save</button>
+    </div>
+</form>

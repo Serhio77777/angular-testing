@@ -9,6 +9,7 @@ import { TestData } from './test.interfaces';
 export class RequestService {
 
   public testProp: string = 'testProperty';
+  private testPropPrivate: string = 'testProperty';
 
   constructor(private httpClient: HttpClient) { }
 

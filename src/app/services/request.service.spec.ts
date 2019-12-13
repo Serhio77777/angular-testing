@@ -41,9 +41,8 @@ describe('Request service:', () => {
       });
     });
 
-    it('Should call the data from promise', async() => {
+    it('Should call the data from promise', () => {
       const { requestService, httpTestingController } = setup();
-
 
       requestService.getDataPromise()
         .then(data => {
@@ -63,7 +62,10 @@ describe('Request service:', () => {
     it('private methods testing', () => {
       const { requestService } = setup();
       spyOn<any>(requestService, 'someMethod').and.returnValue('qwerty');
+
       expect(requestService.testMethod()).toEqual('qwerty');
+      expect(requestService.testPropPrivate).toEqual('testProperty');
+      expect(requestService['testPropPrivate']).toEqual('testProperty');
       expect(requestService.someMethod).toHaveBeenCalled();
     })
 
